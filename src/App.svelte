@@ -1,17 +1,21 @@
 <script>
-	let windowHeight = 1080,
-		windowWidth = 1920;
-	var movementStrength = 15;
-	var height = movementStrength / windowHeight;
-	var width = movementStrength / windowWidth;
-	let newValueX = 0,
-		newValueY = 0;
-
+	import HomeImage from './components/HomeImage.svelte';
+	import HomeText from './components/HomeText.svelte';
+	let windowHeight, windowWidth;
+	let homeImage;
 	function handleMousemove(event) {
-		newValueX = width * (event.clientX - windowWidth / 2) * -1;
-		newValueY = height * (event.clientY - windowHeight / 2) * -1;
+		homeImage.handleMousemove(event, windowHeight, windowWidth);
 	}
 </script>
+
+<div class="row">
+	<div class="col" style="max-width: 41.6667%">
+		<HomeImage bind:homeImage />
+	</div>
+	<div class="col" style="max-width: 58.3333%">
+		<HomeText />
+	</div>
+</div>
 
 <svelte:window
 	bind:innerHeight={windowHeight}
@@ -19,25 +23,22 @@
 	on:mousemove={handleMousemove}
 />
 
-<svelte:body class="body" />
-<div class="row">
-	<div class="col">
-		<div class="home-photo">
-			<div
-				class="home-image"
-				style="background-position: calc(50% + {newValueX}px) calc(50% + {newValueY}px);"
-			/>
-		</div>
-	</div>
-</div>
-
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+	/*Set font family globally*/
+	:global(*) {
+		font-family: 'Poppins', Helvetica, sans-serif;
+		font-style: normal;
+		text-align: left;
+	}
+
 	/*Page Styles*/
 	:global(body) {
 		background-color: #222;
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: column;
+		overflow: hidden;
 	}
 
 	/*Row Styles*/
@@ -47,50 +48,23 @@
 		flex-direction: row;
 		align-items: stretch;
 		position: relative;
+		vertical-align: middle;
+		width: 100%;
+		min-height: 100%;
+		justify-content: center;
+		align-items: center;
+		padding: 15px 0px 15px 0px;
+		margin: 5% 0;
 	}
 
+	/*Column Styles*/
 	.col {
-		position: relative;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		height: auto;
+		display: inline-block;
+		/* flex-direction: row; */
+		/* width: 100%; */
 		width: auto;
-	}
-
-	.home-photo {
-		padding: 8em;
-		margin: 2em;
-		border-radius: 1000px;
-		background-color: #444;
-		display: block;
-		position: relative;
-		overflow: hidden;
-		border-color: #444;
-		border-style: solid;
-		border-width: 1em;
-		box-shadow: 0 0 25px 0 rgb(0 0 0 / 80%);
-		margin: 30px auto;
-	}
-
-	.home-image {
-		background-image: url('../assets/aaqif.jpg');
-		background-size: cover;
-		min-height: 100px;
-		min-width: 100px;
-		height: auto;
-		width: auto;
-		background-repeat: no-repeat;
-		display: block;
-		position: absolute;
-		top: -18px;
-		bottom: -18px;
-		left: -18px;
-		right: -18px;
-	}
-
-	:global(body) {
-		overflow: hidden;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
 	}
 </style>
