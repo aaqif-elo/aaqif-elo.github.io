@@ -21,9 +21,19 @@
 </div>
 
 <style>
+	/*Responsive Styles*/
+	@media screen and (max-width: 684px) {
+		/* .home-photo {
+			width: 90%;
+			padding-bottom: calc(90% - 36px) !important;
+			margin: 30px auto !important;
+		} */
+	}
+
 	/*Photo Container Div*/
 	.home-photo {
-		padding: 8em;
+		/* padding: 8em; */
+		padding-bottom: calc(100% - 36px);
 		margin: 2em;
 		border-radius: 1000px;
 		background-color: #444;
@@ -41,8 +51,8 @@
 	.home-image {
 		background-image: url('../assets/aaqif.jpg');
 		background-size: cover;
-		min-height: 100px;
-		min-width: 100px;
+		min-height: 225px;
+		min-width: 225px;
 		height: auto;
 		width: auto;
 		background-repeat: no-repeat;

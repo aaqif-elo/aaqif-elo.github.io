@@ -2,7 +2,7 @@
 	<!-- Labels for different project categories. TODO: Add onclick navigate to relevant projects -->
 	<div class="labels">
 		<h4>Fullstack Enginner</h4>
-    <h4>|</h4>
+		<h4 class="divider">|</h4>
 		<h4>Mobile Developer</h4>
 	</div>
 	<h1>Aaqif Muhtasim</h1>
@@ -17,14 +17,36 @@
 </div>
 
 <style>
+	/*Responsive Styles*/
+	@media screen and (max-width: 930px) {
+		.divider {
+			display: none !important;
+		}
+
+		h1,
+		.labels,
+		p {
+			text-align: center;
+			margin: auto;
+		}
+
+		.labels {
+			flex-direction: column !important;
+		}
+
+		.home-buttons {
+			text-align: center;
+		}
+	}
+
 	.home-text {
 		display: flex;
 		flex-direction: column;
-    padding-left: 25px;
-    padding-right: 10px;
+		padding-left: 25px;
+		padding-right: 10px;
 	}
 
-	.labels .home-buttons {
+	.labels {
 		display: flex;
 		flex-direction: row;
 	}
@@ -34,6 +56,7 @@
 		color: #aaa;
 		font-weight: 300;
 		margin-bottom: 10px;
+		margin-top: 10px;
 		float: left;
 		padding-inline-end: 1em;
 	}
@@ -54,27 +77,30 @@
 		color: #d5d5d5;
 	}
 
+	.home-buttons {
+		margin-top: 27px;
+	}
 	a {
 		color: #fff;
 		background-color: #333;
 		box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
-    outline: 0;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    border-radius: 30px;
-    border: 2px solid;
-    border-color: #007ced;
-    display: inline-block;
-    position: relative;
-    padding: .8em 2.1em;
-    margin-bottom: .75em;
-    margin-right: .25em;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 1.2;
-    text-shadow: none;
-    box-sizing: border-box;
+		outline: 0;
+		font-weight: 400;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		border-radius: 30px;
+		border: 2px solid;
+		border-color: #007ced;
+		display: inline-block;
+		position: relative;
+		padding: 0.8em 2.1em;
+		margin-bottom: 0.75em;
+		margin-right: 0.25em;
+		text-decoration: none;
+		font-size: 14px;
+		line-height: 1.2;
+		text-shadow: none;
+		box-sizing: border-box;
 	}
 </style>

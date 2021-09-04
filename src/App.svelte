@@ -8,12 +8,14 @@
 	}
 </script>
 
-<div class="row">
-	<div class="col" style="max-width: 41.6667%">
-		<HomeImage bind:homeImage />
-	</div>
-	<div class="col" style="max-width: 58.3333%">
-		<HomeText />
+<div class="content">
+	<div class="row">
+		<div class="col" style="max-width: 41.6667%">
+			<HomeImage bind:homeImage />
+		</div>
+		<div class="col" style="max-width: 58.3333%">
+			<HomeText />
+		</div>
 	</div>
 </div>
 
@@ -35,12 +37,29 @@
 	/*Page Styles*/
 	:global(body) {
 		background-color: #222;
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: column;
-		overflow: hidden;
+		position: relative;
+		/* overflow: hidden; */
 	}
 
+	/*Responsive Styles*/
+	@media screen and (max-width: 684px) {
+		/* .home-photo {
+			width: 90%;
+			padding-bottom: calc(90% - 36px) !important;
+			margin: 30px auto !important;
+		} */
+	}
+
+	/* All content Styles*/
+	.content {
+		min-height: 100vh;
+		padding-bottom: 120px;
+		padding: 52px 40px 60px;
+		display: flex;
+		flex-flow: column;
+		flex-wrap: initial;
+		position: relative;
+	}
 	/*Row Styles*/
 	.row {
 		display: flex;
@@ -53,7 +72,6 @@
 		min-height: 100%;
 		justify-content: center;
 		align-items: center;
-		padding: 15px 0px 15px 0px;
 		margin: 5% 0;
 	}
 
@@ -62,9 +80,8 @@
 		display: inline-block;
 		/* flex-direction: row; */
 		/* width: 100%; */
-		width: auto;
+		flex: 0 0 41.666667%;
 		min-height: 1px;
-		padding-right: 15px;
-		padding-left: 15px;
+		padding: 15px 0px 15px 0px;
 	}
 </style>
