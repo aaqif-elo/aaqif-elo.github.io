@@ -34,8 +34,7 @@
 	.home-photo {
 		/* padding: 8em; */
 		padding-bottom: calc(100% - 36px);
-		margin: 2em;
-		border-radius: 1000px;
+		border-radius: 50%;
 		background-color: #444;
 		display: block;
 		position: relative;
@@ -44,7 +43,7 @@
 		border-style: solid;
 		border-width: 1em;
 		box-shadow: 0 0 25px 0 rgb(0 0 0 / 80%);
-		margin: 30px auto;
+		/* margin: 30px auto; */
 	}
 
 	/*Image Div*/

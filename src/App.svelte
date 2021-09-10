@@ -1,6 +1,6 @@
 <script>
-	import HomeImage from './components/HomeImage.svelte';
-	import HomeText from './components/HomeText.svelte';
+	import HomeComponent from './components/HomeComponent.svelte';
+
 	let windowHeight, windowWidth;
 	let homeImage;
 	function handleMousemove(event) {
@@ -10,11 +10,8 @@
 
 <div class="content">
 	<div class="row">
-		<div class="col" style="max-width: 41.6667%">
-			<HomeImage bind:homeImage />
-		</div>
-		<div class="col" style="max-width: 58.3333%">
-			<HomeText />
+		<div class="col">
+			<HomeComponent bind:homeImage />
 		</div>
 	</div>
 </div>
@@ -42,26 +39,22 @@
 	}
 
 	/*Responsive Styles*/
-	@media screen and (max-width: 684px) {
-		/* .home-photo {
-			width: 90%;
-			padding-bottom: calc(90% - 36px) !important;
-			margin: 30px auto !important;
-		} */
+	@media screen and (min-width: 991px) {
+		.content {
+			max-width: 1320px;
+			margin: 0 auto;
+		}
 	}
 
 	/* All content Styles*/
 	.content {
-		min-height: 100vh;
-		padding-bottom: 120px;
-		padding: 52px 40px 60px;
 		display: flex;
 		flex-flow: column;
 		flex-wrap: initial;
 		position: relative;
 	}
 	/*Row Styles*/
-	.row {
+	:global(.row) {
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
@@ -72,16 +65,16 @@
 		min-height: 100%;
 		justify-content: center;
 		align-items: center;
-		margin: 5% 0;
+		margin-right: -15px;
+		margin-left: -15px;
 	}
 
 	/*Column Styles*/
-	.col {
+	:global(.col) {
 		display: inline-block;
-		/* flex-direction: row; */
-		/* width: 100%; */
-		flex: 0 0 41.666667%;
+		flex: 0 0 100%;
 		min-height: 1px;
 		padding: 15px 0px 15px 0px;
+		max-width: 100%;
 	}
 </style>
